@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "411803660810",
+    "project_id": "salespitchapp-1744a",
+    "storage_bucket": "salespitchapp-1744a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:411803660810:android:3dc70f09ee9604bcf825f3",
+        "android_client_info": {
+          "package_name": "com.app.pitch_me_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "411803660810-3dv6iabtlb23drchbls7fpjgu76ifjta.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.pitch_me_app",
+            "certificate_hash": "f68e8313b8ca95d7c4de3c7762b3a001c52364b0"
+          }
+        },
+        {
+          "client_id": "411803660810-7lp0q13njmnqlupvmtdt3elobfb6l0hd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIqprQNELpnLfXIRF8niUA8WJArdF1i1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "411803660810-5g9ae9scb4pc216tot8775767ruc2nl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

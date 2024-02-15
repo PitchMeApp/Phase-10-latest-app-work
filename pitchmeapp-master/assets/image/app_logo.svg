@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="146.359" viewBox="0 0 335 146.359">
+  <defs>
+    <filter id="Pitch" x="0" y="0" width="226" height="132" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="me" x="204" y="13" width="131" height="115" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Menu" x="228" y="76.359" width="94" height="70" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_12245" data-name="Group 12245" transform="translate(-113 -61)">
+    <g transform="matrix(1, 0, 0, 1, 113, 61)" filter="url(#Pitch)">
+      <text id="Pitch-2" data-name="Pitch" transform="translate(7 81)" fill="none" stroke="#fff" stroke-width="2" font-size="80" font-family="ProximaNova-Bold, Proxima Nova" font-weight="700" letter-spacing="0.025em"><tspan x="0" y="0">Pitch</tspan></text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 113, 61)" filter="url(#me)">
+      <text id="me-2" data-name="me" transform="translate(209 82)" fill="#fff" font-size="70" font-family="ProximaNova-Bold, Proxima Nova" font-weight="700" letter-spacing="0.025em"><tspan x="0" y="0">me</tspan></text>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 113, 61)" filter="url(#Menu)">
+      <text id="Menu-2" data-name="Menu" transform="translate(275 121.36)" fill="#00b1ff" font-size="42" font-family="ProximaNova-Regular, Proxima Nova"><tspan x="-37.842" y="0">App</tspan></text>
+    </g>
+  </g>
+</svg>

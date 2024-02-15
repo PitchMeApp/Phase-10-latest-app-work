@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34" height="26.815" viewBox="0 0 34 26.815">
+  <g id="Group_7924" data-name="Group 7924" transform="translate(-322.568 -206)">
+    <path id="Line_25" data-name="Line 25" d="M32,1H0A1,1,0,0,1-1,0,1,1,0,0,1,0-1H32a1,1,0,0,1,1,1A1,1,0,0,1,32,1Z" transform="translate(323.568 209.315)" fill="#fff"/>
+    <path id="Line_26" data-name="Line 26" d="M32,1H0A1,1,0,0,1-1,0,1,1,0,0,1,0-1H32a1,1,0,0,1,1,1A1,1,0,0,1,32,1Z" transform="translate(323.568 219.315)" fill="#fff"/>
+    <path id="Line_27" data-name="Line 27" d="M32,1H0A1,1,0,0,1-1,0,1,1,0,0,1,0-1H32a1,1,0,0,1,1,1A1,1,0,0,1,32,1Z" transform="translate(323.568 229.5)" fill="#fff"/>
+    <circle id="Ellipse_37" data-name="Ellipse 37" cx="3.5" cy="3.5" r="3.5" transform="translate(344.135 206)" fill="#fff"/>
+    <path id="Ellipse_37_-_Outline" data-name="Ellipse 37 - Outline" d="M3.5,1A2.5,2.5,0,1,0,6,3.5,2.5,2.5,0,0,0,3.5,1m0-1A3.5,3.5,0,1,1,0,3.5,3.5,3.5,0,0,1,3.5,0Z" transform="translate(344.135 206)" fill="#fff"/>
+    <circle id="Ellipse_39" data-name="Ellipse 39" cx="3.5" cy="3.5" r="3.5" transform="translate(344.135 225.815)" fill="#fff"/>
+    <path id="Ellipse_39_-_Outline" data-name="Ellipse 39 - Outline" d="M3.5,1A2.5,2.5,0,1,0,6,3.5,2.5,2.5,0,0,0,3.5,1m0-1A3.5,3.5,0,1,1,0,3.5,3.5,3.5,0,0,1,3.5,0Z" transform="translate(344.135 225.815)" fill="#fff"/>
+    <circle id="Ellipse_38" data-name="Ellipse 38" cx="3.5" cy="3.5" r="3.5" transform="translate(329.124 215.815)" fill="#fff"/>
+    <path id="Ellipse_38_-_Outline" data-name="Ellipse 38 - Outline" d="M3.5,1A2.5,2.5,0,1,0,6,3.5,2.5,2.5,0,0,0,3.5,1m0-1A3.5,3.5,0,1,1,0,3.5,3.5,3.5,0,0,1,3.5,0Z" transform="translate(329.124 215.815)" fill="#fff"/>
+  </g>
+</svg>

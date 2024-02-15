@@ -1,0 +1,12 @@
+const BASE_URL = //'http://103.177.225.122:1200/api/';
+    'https://api.salespitchapp.com/api/';
+//const BASE_URL='http://dev.saturncube.com:9070/api/';
+const GET_POST_DATA_URL = "${BASE_URL}post/app/get";
+const GET_STASTICS_URL = "${BASE_URL}settings/app/get";
+const LOGIN = "user/login";
+const SOCIAL_LOGIN = "user/social";
+const REGISTER = "user/register";
+const SEND_EMAIL = "user/send_mail";
+const EDIT_USER_TYPE = 'user/edit/type';
+const INDUSTRY = 'industry';
+const SERVICES = 'services';

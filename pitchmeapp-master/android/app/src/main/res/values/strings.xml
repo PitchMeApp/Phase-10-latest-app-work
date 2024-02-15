@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pitch Me App</string>
+    <string name="facebook_app_id">1389072958514564</string>
+    <string name="fb_login_protocol_scheme">fb1389072958514564</string>
+    <string name="facebook_client_token">6440179f4387674bb173f00ee4ebff8f</string>
+</resources>
