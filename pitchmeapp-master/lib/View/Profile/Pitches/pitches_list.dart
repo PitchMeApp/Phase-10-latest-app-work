@@ -200,6 +200,7 @@ class _PitchesListPageState extends State<PitchesListPage> {
                               ),
                               shrinkWrap: true,
                               primary: false,
+
                               //reverse: true,
                               padding: EdgeInsets.zero,
                               itemCount: snapshot.data!.result.length,
