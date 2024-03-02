@@ -61,7 +61,6 @@ class _ProfilePageState extends State<ProfilePage> {
   bool isCheckTutorial = false;
   bool playTutorial = false;
   bool isLoading = false;
-  bool isLoading2 = false;
 
   @override
   void initState() {
