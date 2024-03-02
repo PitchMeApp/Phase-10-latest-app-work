@@ -92,7 +92,7 @@ class _HomeTutorialPageState extends State<HomeTutorialPage> {
               source: {
                 "Source": VideoSource(
                   video: VideoPlayerController.network(
-                      'https://d2vaqd2kfxjiiz.cloudfront.net/pitchme/homepage.mp4'),
+                      'https://soop1.s3.ap-south-1.amazonaws.com/pitchme/homepage.mp4'),
                 )
               },
             ),

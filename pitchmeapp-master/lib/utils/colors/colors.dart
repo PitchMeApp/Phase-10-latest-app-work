@@ -24,6 +24,7 @@ class DynamicColor {
   static const Color gredient2 = Color(0xFF21C8D1);
   static const Color green = Color(0xff44D223);
   static const Color textColor = Color(0xff214252);
+  static const Color selectedtextBGColor = Color.fromARGB(255, 101, 100, 100);
 
   // gradientColor
   static const gradientColorOnBegin = LinearGradient(

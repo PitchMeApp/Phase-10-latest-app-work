@@ -660,6 +660,7 @@ class _NeedFilterPageState extends State<NeedFilterPage> {
                             child: TextFormField(
                               cursorHeight: 22,
                               controller: controller.spTextController,
+                              cursorColor: DynamicColor.gredient1,
                               style: gredient116bold,
                               onTap: () {
                                 setState(() {
@@ -795,6 +796,7 @@ class _NeedFilterPageState extends State<NeedFilterPage> {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: ChoiceChip(
+                              side: BorderSide(color: DynamicColor.white),
                               label: Padding(
                                 padding: EdgeInsets.all(10),
                                 child: Text(

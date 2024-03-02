@@ -110,7 +110,8 @@ class BusinessIdeasApi extends GetConnect {
 
     // log(fundingPhase.toString());
 
-    log('${BASE_URL}salespitch?type=2&user=$userID&usertype=$bussinessType&industry=$customIndustry&location=$selectedLocation&types=$investorSp&valueamount=$rangValue&fundingPhase=$fundingPhase&services=$service&servicesDetail=$serviceSearched');
+    print('url = ' +
+        '${BASE_URL}salespitch?type=2&user=$userID&usertype=$bussinessType&industry=$customIndustry&location=$selectedLocation&types=$investorSp&valueamount=$rangValue&fundingPhase=$fundingPhase&services=$service&servicesDetail=$serviceSearched');
     if (userID.isNotEmpty && userID != 'null') {
       res = await get(
           '${BASE_URL}salespitch?type=2&user=$userID&usertype=$bussinessType&industry=$customIndustry&location=$selectedLocation&types=$investorSp&valueamount=$rangValue&fundingPhase=$fundingPhase&services=$service&servicesDetail=$serviceSearched');
@@ -118,7 +119,7 @@ class BusinessIdeasApi extends GetConnect {
       res = await get('${BASE_URL}salespitch?type=2');
     }
     // log('${BASE_URL}salespitch?type=2&user=$userID&usertype=$bussinessType');
-    // log("Res is at getPost = " + res.body.toString());
+    print("Res is at getPost = " + res.body.toString());
     if (res.statusCode == 200) {
       return SalesPitchListModel.fromJson(res.body);
     }

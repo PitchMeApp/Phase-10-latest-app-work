@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:pitch_me_app/Phase%206/demo%20watch%20sales%20pitch/demo_watch_sales.dart';
 import 'package:pitch_me_app/View/Notification/notification_list.dart';
 import 'package:pitch_me_app/controller/businessIdeas/dashBoardController.dart';
+import 'package:pitch_me_app/controller/businessIdeas/detail_controller.dart';
 import 'package:pitch_me_app/controller/businessIdeas/homepagecontroller.dart';
 import 'package:pitch_me_app/screens/businessIdeas/dashBoardScreen_Two.dart';
 import 'package:pitch_me_app/screens/businessIdeas/home_manu.dart';
@@ -44,6 +45,7 @@ class _mainHome_TwoState extends State<mainHome_Two> {
       Get.put(DemoWatchSalesPitchController());
 
   final HomePageController homePageController = Get.put(HomePageController());
+  final DetailController detailController = Get.put(DetailController());
 
   bool _isInitialValue = false;
   bool isManu = false;
@@ -89,6 +91,7 @@ class _mainHome_TwoState extends State<mainHome_Two> {
         setState(() {});
       },
     );
+    detailController.getSalesPitchDataApi();
     if (!mounted) {
       return;
     }
@@ -306,12 +309,12 @@ class _mainHome_TwoState extends State<mainHome_Two> {
                                                                               overflow: TextOverflow.ellipsis,
                                                                             )
                                                                           : Text(
-                                                                              dashboardController.salespitch.value != null && dashboardController.salespitch.value.result != null
-                                                                                  ? dashboardController.salespitch.value.result!.docs.isNotEmpty && dashboardController.salespitch.value.result!.docs.length > postPageController.swipableStackController.currentIndex
-                                                                                      ? dashboardController.salespitch.value.result!.docs[postPageController.swipableStackController.currentIndex].title
+                                                                              detailController.salespitch.value != null && detailController.salespitch.value.result != null
+                                                                                  ? detailController.salespitch.value.result!.docs.isNotEmpty && detailController.salespitch.value.result!.docs.length > postPageController.swipableStackController.currentIndex
+                                                                                      ? detailController.salespitch.value.result!.docs[postPageController.swipableStackController.currentIndex].title
                                                                                       : ''
                                                                                   : '',
-                                                                              style: TextStyle(color: DynamicColor.gredient1, fontWeight: FontWeight.bold, fontSize: 16),
+                                                                              style: gredient116bold,
                                                                               maxLines: 1,
                                                                               overflow: TextOverflow.ellipsis,
                                                                             ),

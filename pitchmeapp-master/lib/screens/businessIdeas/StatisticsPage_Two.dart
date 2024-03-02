@@ -333,7 +333,8 @@ class _StatisticsPage_TwoState extends State<StatisticsPage_Two> {
                   onPressad: () {})
               : Container(),
           salesDoc.valueamount.isNotEmpty
-              ? customWidget('How much', salesDoc.valueamount, onPressad: () {})
+              ? customWidget('How much', 'USD ${salesDoc.valueamount}',
+                  onPressad: () {})
               : Container(),
           fundingPhase.isEmpty || fundingPhase == '[]'
               ? Container()
@@ -370,7 +371,7 @@ class _StatisticsPage_TwoState extends State<StatisticsPage_Two> {
                         onPressad: () {});
                   })
               : Container(),
-          customWidget('Initial Offer', widget.salesDoc.description,
+          offerDetailWidget('Initial Offer', widget.salesDoc.description,
               onPressad: () {}),
           whocanwatchList.isNotEmpty
               ? ListView.builder(
@@ -478,6 +479,52 @@ class _StatisticsPage_TwoState extends State<StatisticsPage_Two> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget offerDetailWidget(title, name, {required VoidCallback onPressad}) {
+    final sizeH = MediaQuery.of(context).size.height;
+
+    int wordscount = RegExp.escape(name).length;
+
+    return Padding(
+      padding: EdgeInsets.only(
+        left: SizeConfig.getFontSize20(context: context),
+        right: SizeConfig.getFontSize20(context: context),
+      ),
+      child: InkWell(
+        onTap: onPressad,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text(title, style: black14w5),
+            ),
+            Card(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Container(
+                  height: wordscount > 70 ? null : sizeH * 0.068,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: DynamicColor.gradientColorChange),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 5, top: 5),
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+            ),
+          ],
+        ),
       ),
     );
   }

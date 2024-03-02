@@ -202,6 +202,7 @@ class _IndustryFilterPageState extends State<IndustryFilterPage> {
                   cursorHeight: 22,
                   controller: controller.industryTextController,
                   style: gredient116bold,
+                  cursorColor: DynamicColor.gredient1,
                   onTap: () {},
                   onEditingComplete: () {
                     FocusScope.of(context).requestFocus(FocusNode());
@@ -320,6 +321,7 @@ class _IndustryFilterPageState extends State<IndustryFilterPage> {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: ChoiceChip(
+                              side: BorderSide(color: DynamicColor.white),
                               label: Padding(
                                 padding: EdgeInsets.all(10),
                                 child: Text(

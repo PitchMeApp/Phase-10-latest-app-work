@@ -314,6 +314,7 @@ class _CameraPageState extends State<CameraPage> {
                             alignment: Alignment.centerLeft,
                             child: FloatingActionButton(
                               heroTag: 1,
+                              shape: StadiumBorder(),
                               backgroundColor: Colors.red,
                               child: Icon(
                                 _isRecording
@@ -336,6 +337,7 @@ class _CameraPageState extends State<CameraPage> {
                           padding: const EdgeInsets.all(15),
                           child: FloatingActionButton(
                             heroTag: 1,
+                            shape: StadiumBorder(),
                             backgroundColor: Colors.red,
                             child: Icon(
                               _isRecording
@@ -353,6 +355,7 @@ class _CameraPageState extends State<CameraPage> {
                           padding: const EdgeInsets.all(15),
                           child: FloatingActionButton(
                             heroTag: 2,
+                            shape: StadiumBorder(),
                             backgroundColor: DynamicColor.gredient2,
                             child: Text(
                               'Add Text',
@@ -381,6 +384,7 @@ class _CameraPageState extends State<CameraPage> {
                           padding: const EdgeInsets.all(15),
                           child: FloatingActionButton(
                             heroTag: 3,
+                            shape: StadiumBorder(),
                             backgroundColor: DynamicColor.gredient1,
                             child: const Icon(
                               Icons.change_circle,

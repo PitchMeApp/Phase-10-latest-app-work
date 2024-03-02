@@ -114,6 +114,7 @@ class _OfferPageState extends State<OfferPage> {
                 maxLines: 8,
                 maxLength: 200,
                 textInputAction: TextInputAction.done,
+                cursorColor: DynamicColor.gredient1,
                 decoration: InputDecoration(
                   fillColor: DynamicColor.lightGrey.withOpacity(0.3),
                   filled: true,

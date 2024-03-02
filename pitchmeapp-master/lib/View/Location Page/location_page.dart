@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -271,7 +272,9 @@ class _LocationPageState extends State<LocationPage> {
                               SizeConfig.getSize40(context: context),
                         )
                       : SizedBox(
-                          height: SizeConfig.getSize60(context: context),
+                          height: Platform.isIOS
+                              ? SizeConfig.getSize100(context: context)
+                              : SizeConfig.getSize60(context: context),
                         ),
                 ],
               ),
@@ -360,51 +363,58 @@ class _LocationPageState extends State<LocationPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: DynamicColor.gredient1)),
-                    child: GooglePlaceAutoCompleteTextField(
-                        textEditingController:
-                            _locationPageController.searchController,
-                        googleAPIKey: Keys.googleApiKey,
-                        onTap: () {
-                          setState(() {
-                            isKeyboardOpen = true;
-                          });
-                          _locationPageController.searchController.text = '';
-                        },
-                        textStyle: gredient116bold,
-                        inputDecoration: InputDecoration(
-                            hintText: 'Type',
-                            hintStyle: TextStyle(
-                                fontSize: 15,
-                                color: DynamicColor.lightGrey.withOpacity(0.5)),
-                            border: InputBorder.none,
-                            // outlineInputBorderBlue,
-                            // enabledBorder: outlineInputBorderBlue,
-                            // disabledBorder: outlineInputBorderBlue,
-                            // focusedBorder: outlineInputBorderBlue,
-                            suffixIcon: Icon(
-                              Icons.location_on,
-                              size: 18,
-                              color: DynamicColor.lightGrey,
-                            ),
-                            contentPadding: const EdgeInsets.only(
-                                top: 15, left: 5, right: 5)),
-                        // countries: const ["in", "us"],
-                        countries: const ["us", "AE"],
-                        currentLatitude: currentLatitude,
-                        currentLongitude: currentLongitude,
-                        debounceTime: 0,
-                        isLatLngRequired: true,
-                        getPlaceDetailWithLatLng: (Prediction prediction) {
-                          _locationPageController.searchController.text =
-                              prediction.description!;
-                          displayPrediction(prediction);
-                        },
-                        itmClick: (Prediction prediction) {
-                          setState(() {
-                            isKeyboardOpen = false;
-                          });
-                          FocusScope.of(context).requestFocus(FocusNode());
-                        })),
+                    child: Theme(
+                      data: ThemeData(
+                          textSelectionTheme: TextSelectionThemeData(
+                              selectionColor:
+                                  DynamicColor.selectedtextBGColor)),
+                      child: GooglePlaceAutoCompleteTextField(
+                          textEditingController:
+                              _locationPageController.searchController,
+                          googleAPIKey: Keys.googleApiKey,
+                          onTap: () {
+                            setState(() {
+                              isKeyboardOpen = true;
+                            });
+                            _locationPageController.searchController.text = '';
+                          },
+                          textStyle: gredient116bold,
+                          inputDecoration: InputDecoration(
+                              hintText: 'Type',
+                              hintStyle: TextStyle(
+                                  fontSize: 15,
+                                  color:
+                                      DynamicColor.lightGrey.withOpacity(0.5)),
+                              border: InputBorder.none,
+                              // outlineInputBorderBlue,
+                              // enabledBorder: outlineInputBorderBlue,
+                              // disabledBorder: outlineInputBorderBlue,
+                              // focusedBorder: outlineInputBorderBlue,
+                              suffixIcon: Icon(
+                                Icons.location_on,
+                                size: 18,
+                                color: DynamicColor.lightGrey,
+                              ),
+                              contentPadding: const EdgeInsets.only(
+                                  top: 15, left: 5, right: 5)),
+                          // countries: const ["in", "us"],
+                          countries: const ["us", "AE"],
+                          currentLatitude: currentLatitude,
+                          currentLongitude: currentLongitude,
+                          debounceTime: 0,
+                          isLatLngRequired: true,
+                          getPlaceDetailWithLatLng: (Prediction prediction) {
+                            _locationPageController.searchController.text =
+                                prediction.description!;
+                            displayPrediction(prediction);
+                          },
+                          itmClick: (Prediction prediction) {
+                            setState(() {
+                              isKeyboardOpen = false;
+                            });
+                            FocusScope.of(context).requestFocus(FocusNode());
+                          }),
+                    )),
               ),
             ),
           ),

@@ -79,6 +79,7 @@ class _VideoPageMainState extends State<VideoPageMain> {
                                   controller: _videoFirstPageController
                                       .editingController,
                                   keyboardType: TextInputType.name,
+                                  cursorColor: DynamicColor.gredient1,
                                   style: const TextStyle(
                                       fontSize: 25,
                                       color: DynamicColor.gredient1,

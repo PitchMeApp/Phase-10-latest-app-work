@@ -139,7 +139,7 @@ class _TutorialsPageState extends State<TutorialsPage> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: MediaQuery.of(context).size.width /
-                        (MediaQuery.of(context).size.height * 0.80),
+                        (MediaQuery.of(context).size.height * 0.90),
                   ),
                   shrinkWrap: true,
                   primary: false,

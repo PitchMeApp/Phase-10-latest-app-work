@@ -518,25 +518,29 @@ class _AdminUserChatPageState extends State<AdminUserChatPage> {
   }
 
   Widget showMsg(msg) {
-    //log(msg.toString());
-    return VoiceMessage(
-      // contactCircleColor: Colors.transparent,
-      audioSrc: Uri.parse(msg
-              .toString()
-              .replaceAll('ciu.ody.mybluehostin.me', 'curveinfotech.com'))
-          .toString(),
-      meBgColor: DynamicColor.lightGrey,
-      contactBgColor: DynamicColor.gredient2,
-      contactCircleColor: DynamicColor.gredient2,
-      contactFgColor: DynamicColor.gredient2,
-      contactPlayIconColor: DynamicColor.white,
-      mePlayIconColor: DynamicColor.white,
-      contactPlayIconBgColor: DynamicColor.gredient2,
-      meFgColor: DynamicColor.gredient2,
+    print('dd = ' + msg.toString());
 
-      played: false,
-      me: true,
-      onPlay: () {},
+    return SizedBox(
+      height: SizeConfig.getSizeHeightBy(context: context, by: 0.1),
+      child: VoiceMessage(
+        // contactCircleColor: Colors.transparent,
+        audioSrc: Uri.parse(msg
+                .toString()
+                .replaceAll('ciu.ody.mybluehostin.me', 'curveinfotech.com'))
+            .toString(),
+        meBgColor: DynamicColor.lightGrey,
+        contactBgColor: DynamicColor.gredient2,
+        contactCircleColor: DynamicColor.gredient2,
+        contactFgColor: DynamicColor.gredient2,
+        contactPlayIconColor: DynamicColor.white,
+        mePlayIconColor: DynamicColor.white,
+        contactPlayIconBgColor: DynamicColor.gredient2,
+        meFgColor: DynamicColor.gredient2,
+
+        played: false,
+        me: true,
+        onPlay: () {},
+      ),
     );
   }
 

@@ -142,7 +142,7 @@ class _WatchSalesPitchState extends State<WatchSalesPitch> {
         source: {
           "Source": VideoSource(
             video: VideoPlayerController.network(
-                'https://d2vaqd2kfxjiiz.cloudfront.net/pitchme/watchsalespage.mp4'),
+                'https://soop1.s3.ap-south-1.amazonaws.com/pitchme/watchsalespage.mp4'),
           )
         },
       ),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pitch_me_app/Phase%206/Guest%20UI/Guest%20limitation%20pages/no_more_pitch.dart';
 import 'package:pitch_me_app/View/posts/model.dart';
 import 'package:pitch_me_app/controller/businessIdeas/dashBoardController.dart';
+import 'package:pitch_me_app/controller/businessIdeas/detail_controller.dart';
 import 'package:pitch_me_app/controller/businessIdeas/postPageController.dart';
 import 'package:pitch_me_app/screens/businessIdeas/StatisticsPage_Two.dart';
 import 'package:pitch_me_app/screens/businessIdeas/postPage.dart';
@@ -27,6 +28,7 @@ class _DashBoardScreen_TwoState extends State<DashBoardScreen_Two> {
   final _controller = PageController();
   DashboardController controller = Get.put(DashboardController());
   PostPageController postPageController = Get.put(PostPageController());
+  DetailController detailController = Get.put(DetailController());
 
   bool checkData = false;
 
@@ -91,10 +93,15 @@ class _DashBoardScreen_TwoState extends State<DashBoardScreen_Two> {
                 } else if (controller.isFinish2.value) {
                   return NoMorePitchPage();
                 } else {
-                  return controller.salespitch.value != null &&
-                          controller.salespitch.value.result != null &&
-                          controller.salespitch.value.result!.docs.isNotEmpty &&
-                          controller.salespitch.value.result!.docs.length >
+                  // print('check = ' +
+                  //     postPageController.swipableStackController.currentIndex
+                  //         .toString());
+                  return detailController.salespitch.value != null &&
+                          detailController.salespitch.value.result != null &&
+                          detailController
+                              .salespitch.value.result!.docs.isNotEmpty &&
+                          detailController
+                                  .salespitch.value.result!.docs.length >
                               postPageController
                                   .swipableStackController.currentIndex
                       ? PostPageWidget(
@@ -103,36 +110,36 @@ class _DashBoardScreen_TwoState extends State<DashBoardScreen_Two> {
                             setState(() {
                               newIndex = index;
                             });
-                            // log("Is finish is $newIndex");
-                            // log('check index = ' +
-                            //     postPageController
-                            //         .swipableStackController.currentIndex
-                            //         .toString());
+                            print("indexs $newIndex");
+                            print(
+                                'indexs 2 = ${postPageController.swipableStackController.currentIndex}');
                             setState(() {
                               controller.isFinish2.value = isFinish;
                               widget.onSwipe(index, title, isFinish);
                             });
                           },
-                          postModel: controller.salespitch.value,
+                          postModel: detailController.salespitch.value,
                         )
                       : Container();
                 }
               }),
           controller.isLoadingStats.value == true
               ? Center(child: CircularProgressIndicator())
-              : controller.salespitch != null &&
-                      controller.salespitch.value.result != null
-                  ? controller.salespitch.value.result!.docs.isNotEmpty &&
-                          controller.salespitch.value.result!.docs.length >
+              : detailController.salespitch != null &&
+                      detailController.salespitch.value.result != null
+                  ? detailController.salespitch.value.result!.docs.isNotEmpty &&
+                          detailController
+                                  .salespitch.value.result!.docs.length >
                               postPageController
                                   .swipableStackController.currentIndex
                       ? StatisticsPage_Two(
                           pagecont: _controller,
-                          salesDoc: controller.salespitch.value.result!.docs[
-                              postPageController
-                                  .swipableStackController.currentIndex],
+                          salesDoc:
+                              detailController.salespitch.value.result!.docs[
+                                  postPageController
+                                      .swipableStackController.currentIndex],
                           newIndex: newIndex,
-                          postModel: controller.salespitch.value,
+                          postModel: detailController.salespitch.value,
                         )
                       : Container()
                   : Container()

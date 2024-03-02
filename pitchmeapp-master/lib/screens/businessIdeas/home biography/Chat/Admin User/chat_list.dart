@@ -14,8 +14,10 @@ import 'package:pitch_me_app/screens/businessIdeas/home%20biography/Chat/control
 import 'package:pitch_me_app/utils/colors/colors.dart';
 import 'package:pitch_me_app/utils/sizeConfig/sizeConfig.dart';
 import 'package:pitch_me_app/utils/styles/styles.dart';
+import 'package:pitch_me_app/utils/widgets/Alert%20Box/delete_chat_popup.dart';
 import 'package:pitch_me_app/utils/widgets/Navigation/custom_navigation.dart';
 import 'package:pitch_me_app/utils/widgets/containers/containers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../View/Feedback/controller.dart';
@@ -60,6 +62,18 @@ class _AdminUserChatListPageState extends State<AdminUserChatListPage> {
 
       controller.add(chatListModel);
     });
+  }
+
+  void deleteChat(chatID) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var senderID = prefs.get('user_id').toString();
+
+    var onCreate = {
+      'userid': senderID,
+      'chatid': chatID,
+    };
+    socket.emit('delete_chat_admin', onCreate);
+    Navigator.of(context).pop();
   }
 
   @override
@@ -370,55 +384,93 @@ class _AdminUserChatListPageState extends State<AdminUserChatListPage> {
                                                     ),
                                             ],
                                           ),
-                                          trailing: Column(
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  right: 5,
-                                                  bottom: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.01,
-                                                ),
-                                                child: Text(
-                                                  datetime,
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      color:
-                                                          DynamicColor.hintclr),
-                                                ),
-                                              ),
-                                              data.unread != 0
-                                                  ? Padding(
+                                          trailing: SizedBox(
+                                            width: SizeConfig.getSizeWidthBy(
+                                                context: context, by: 0.23),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceAround,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Column(
+                                                  children: [
+                                                    Padding(
                                                       padding: EdgeInsets.only(
-                                                          right: 5),
-                                                      child: CircleAvatar(
-                                                        radius: 12,
-                                                        backgroundColor:
-                                                            DynamicColor
-                                                                .gredient1,
-                                                        child: Text(
-                                                          data.unread
-                                                              .toString(),
-                                                          style:
-                                                              white13TextStyle,
-                                                          maxLines: 1,
-                                                          overflow: TextOverflow
-                                                              .ellipsis,
-                                                        ),
+                                                        bottom: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.01,
                                                       ),
-                                                    )
-                                                  : Container(
-                                                      height: 0,
-                                                      width: 0,
-                                                    )
-                                            ],
+                                                      child: Text(
+                                                        datetime,
+                                                        style: TextStyle(
+                                                            fontSize: 12,
+                                                            color: DynamicColor
+                                                                .hintclr),
+                                                      ),
+                                                    ),
+                                                    data.unread != 0
+                                                        ? CircleAvatar(
+                                                            radius: 12,
+                                                            backgroundColor:
+                                                                DynamicColor
+                                                                    .gredient1,
+                                                            child: Text(
+                                                              data.unread
+                                                                  .toString(),
+                                                              style:
+                                                                  white13TextStyle,
+                                                              maxLines: 1,
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                            ),
+                                                          )
+                                                        : Container(
+                                                            height: 0,
+                                                            width: 0,
+                                                          )
+                                                  ],
+                                                ),
+                                                InkWell(
+                                                  onTap: () {
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (context) =>
+                                                            DeleteChatPostPopUp(
+                                                                type: 'chats',
+                                                                onTap: () {
+                                                                  deleteChat(
+                                                                      data.chat
+                                                                          .id);
+                                                                })).then(
+                                                        (value) {
+                                                      PageNavigateScreen()
+                                                          .normalpushReplesh(
+                                                              context,
+                                                              AdminUserChatListPage(
+                                                                  notifyID: widget
+                                                                      .notifyID));
+                                                    });
+                                                  },
+                                                  child: Icon(
+                                                    Icons.delete,
+                                                    size: 25,
+                                                    color:
+                                                        DynamicColor.gredient2,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         ),
                                   data.user == null
                                       ? Container()
                                       : Divider(
                                           height: 0,
+                                          color: DynamicColor.butnClr2,
                                         )
                                 ],
                               );

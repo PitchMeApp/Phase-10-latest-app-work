@@ -206,7 +206,8 @@ class _PostDetailPageState extends State<PostDetailPage> {
               })
             : Container(),
         data.valueamount.isNotEmpty
-            ? customWidget("How much", data.valueamount, onPressad: () {
+            ? customWidget("How much", 'USD ${data.valueamount}',
+                onPressad: () {
                 // PageNavigateScreen().push(context, FundsPage());
               })
             : Container(),
@@ -248,7 +249,8 @@ class _PostDetailPageState extends State<PostDetailPage> {
                   });
                 })
             : Container(),
-        customWidget("Initial Offer", data.description, onPressad: () async {
+        offerDetailWidget("Initial Offer", data.description,
+            onPressad: () async {
           // bytes = await controller.capture();
           // setState(() {});
         }),
@@ -366,7 +368,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
 
   Widget customWidget(title, name, {required VoidCallback onPressad}) {
     final sizeH = MediaQuery.of(context).size.height;
-    final sizeW = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: EdgeInsets.only(
         left: SizeConfig.getFontSize20(context: context),
@@ -401,6 +403,52 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       textAlign: TextAlign.center,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
+                    ),
+                  )),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget offerDetailWidget(title, name, {required VoidCallback onPressad}) {
+    final sizeH = MediaQuery.of(context).size.height;
+
+    int wordscount = RegExp.escape(name).length;
+
+    return Padding(
+      padding: EdgeInsets.only(
+        left: SizeConfig.getFontSize20(context: context),
+        right: SizeConfig.getFontSize20(context: context),
+      ),
+      child: InkWell(
+        onTap: onPressad,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text(title, style: black14w5),
+            ),
+            Card(
+              elevation: 10,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Container(
+                  height: wordscount > 70 ? null : sizeH * 0.068,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: DynamicColor.gradientColorChange),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 5, top: 5),
+                    child: Text(
+                      name,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center,
                     ),
                   )),
             ),

@@ -277,7 +277,7 @@ class _SelectIndustryPageState extends State<SelectIndustryPage> {
                                                       controller:
                                                           scrollController,
                                                       diameterRatio: 1.5,
-                                                      itemExtent: 25,
+                                                      itemExtent: 28,
                                                       physics: isKeyboardOpen
                                                           ? NeverScrollableScrollPhysics()
                                                           : const FixedExtentScrollPhysics(),
@@ -354,6 +354,9 @@ class _SelectIndustryPageState extends State<SelectIndustryPage> {
                                                                             index
                                                                         ? gredient122bold
                                                                         : textColor15,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                               ),
                                                             ),
                                                           );

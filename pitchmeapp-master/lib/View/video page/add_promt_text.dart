@@ -115,6 +115,7 @@ class _AddPromtTextState extends State<AddPromtText> {
             controller: textEditingController,
             style: gredient116bold,
             maxLines: 18,
+            cursorColor: DynamicColor.gredient1,
             textInputAction: TextInputAction.done,
             decoration: InputDecoration(
               fillColor: DynamicColor.lightGrey.withOpacity(0.3),

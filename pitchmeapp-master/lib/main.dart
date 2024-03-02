@@ -66,9 +66,20 @@ class MyApp extends StatelessWidget {
                 useInheritedMediaQuery: true,
                 initialBinding: PostBindng(),
                 defaultTransition: Transition.rightToLeft,
+
                 theme: ThemeData(
-                  primarySwatch: Colors.blue,
-                ),
+                    textSelectionTheme: TextSelectionThemeData(
+                        selectionHandleColor: Color.fromARGB(255, 96, 205, 232),
+                        selectionColor: Color.fromARGB(255, 193, 239, 250)),
+                    useMaterial3: true,
+                    colorScheme: ColorScheme.light(
+                      background: Colors.white,
+                      brightness: Brightness.light,
+                      primary: Colors.white,
+                      onPrimary: Colors.white,
+                      secondary: Colors.white,
+                      onSecondary: Colors.white,
+                    )),
                 builder: (context, widget) => ResponsiveBreakpoints.builder(
                   child: BouncingScrollWrapper.builder(context, widget!),
                   /* maxWidth: 1200,

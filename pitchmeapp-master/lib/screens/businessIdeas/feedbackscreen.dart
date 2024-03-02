@@ -257,12 +257,13 @@ class _ratingScreenState extends State<ratingScreen> {
                               borderRadius: BorderRadius.circular(10)),
                           child: InkWell(
                             onTap: () {
+                              _pageController.savedVideo(
+                                  widget.postid, widget.receiverid, 1, context);
                               setState(() {
                                 isCheck = 2;
                                 _pageController.left.value = false;
+                                Navigator.of(context).pop();
                               });
-                              _pageController.savedVideo(
-                                  widget.postid, widget.receiverid, 1, context);
                             },
                             child: Container(
                                 height: 48,

@@ -7,7 +7,6 @@ import '../../utils/extras/extras.dart';
 
 class NeedPageController extends GetxController {
   TextEditingController textController = TextEditingController();
-  RxString customText = ''.obs;
   RxString itemType = ''.obs;
 
   RxInt checkColor = 0.obs;
@@ -23,7 +22,7 @@ class NeedPageController extends GetxController {
   List data = [
     {
       'value': 'Skill',
-      'meg': 'E.g. Languages, Coding, Sales, etc',
+      'msg': 'E.g. Languages, Coding, Sales, etc',
       'isSelected': false
     },
     {

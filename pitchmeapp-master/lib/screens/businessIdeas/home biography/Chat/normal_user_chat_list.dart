@@ -412,7 +412,7 @@ class _ChatListPageState extends State<ChatListPage> {
                               ),
                               trailing: SizedBox(
                                 width: SizeConfig.getSizeWidthBy(
-                                    context: context, by: 0.2),
+                                    context: context, by: 0.23),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
@@ -422,7 +422,6 @@ class _ChatListPageState extends State<ChatListPage> {
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
-                                            right: 5,
                                             bottom: MediaQuery.of(context)
                                                     .size
                                                     .height *
@@ -436,20 +435,16 @@ class _ChatListPageState extends State<ChatListPage> {
                                           ),
                                         ),
                                         data.unread != 0
-                                            ? Padding(
-                                                padding:
-                                                    EdgeInsets.only(right: 5),
-                                                child: CircleAvatar(
-                                                  radius: 12,
-                                                  backgroundColor:
-                                                      DynamicColor.gredient1,
-                                                  child: Text(
-                                                    data.unread.toString(),
-                                                    style: white13TextStyle,
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                  ),
+                                            ? CircleAvatar(
+                                                radius: 12,
+                                                backgroundColor:
+                                                    DynamicColor.gredient1,
+                                                child: Text(
+                                                  data.unread.toString(),
+                                                  style: white13TextStyle,
+                                                  maxLines: 1,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                               )
                                             : Container(
@@ -481,6 +476,7 @@ class _ChatListPageState extends State<ChatListPage> {
                             ),
                             Divider(
                               height: 0,
+                              color: DynamicColor.butnClr2,
                             )
                           ],
                         );
@@ -500,6 +496,7 @@ class _ChatListPageState extends State<ChatListPage> {
         children: [
           Divider(
             height: 0,
+            color: DynamicColor.butnClr2,
           ),
           ListTile(
             onTap: () {
@@ -561,6 +558,7 @@ class _ChatListPageState extends State<ChatListPage> {
           ),
           Divider(
             height: 0,
+            color: DynamicColor.butnClr2,
           ),
         ],
       ),

@@ -86,8 +86,6 @@ class _NeedPageState extends State<NeedPage> {
                               _needPageController.onselectValue(0);
                               if (_needPageController.data[0]['isSelected'] ==
                                   true) {
-                                _needPageController.customText.value =
-                                    'E.g. Languages, Coding, Sales, etc';
                                 _needPageController.itemType.value = 'Skill';
                               }
                             });
@@ -107,8 +105,6 @@ class _NeedPageState extends State<NeedPage> {
                                 _needPageController.onselectValue(1);
                                 if (_needPageController.data[1]['isSelected'] ==
                                     true) {
-                                  _needPageController.customText.value =
-                                      'E.g. Lawyer, Marketing, Real Estate, etc';
                                   _needPageController.itemType.value =
                                       'Service';
                                 }
@@ -130,8 +126,6 @@ class _NeedPageState extends State<NeedPage> {
                                 _needPageController.onselectValue(2);
                                 if (_needPageController.data[2]['isSelected'] ==
                                     true) {
-                                  _needPageController.customText.value =
-                                      'E.g. That ¨introduction¨ that makes all the Difference';
                                   _needPageController.itemType.value =
                                       'Connection';
                                 }
@@ -164,9 +158,6 @@ class _NeedPageState extends State<NeedPage> {
                               _needPageController.checkColor.value = 1;
                               _needPageController.onselectValue2(0, 1);
 
-                              _needPageController.customText.value =
-                                  'E.g. Professional to manage on your Behalf';
-
                               _needPageController.searchingSelectedItems.value =
                                   [];
                               _needPageController.textController.text = '';
@@ -187,8 +178,6 @@ class _NeedPageState extends State<NeedPage> {
                               setState(() {
                                 _needPageController.checkColor.value = 1;
                                 _needPageController.onselectValue2(1, 0);
-                                _needPageController.customText.value =
-                                    'E.g. Sell your Idea or Business';
 
                                 _needPageController
                                     .searchingSelectedItems.value = [];
@@ -203,9 +192,7 @@ class _NeedPageState extends State<NeedPage> {
                     _needPageController.selectedNeedType.value.isEmpty
                         ? Container()
                         : _footerHint(),
-                    _needPageController.customText.value.isNotEmpty
-                        ? _searchBar()
-                        : Container(),
+                    _searchBar(),
                     searchItemList(),
                     isKeyboardOpen == true
                         ? SizedBox(
@@ -253,12 +240,23 @@ class _NeedPageState extends State<NeedPage> {
   }
 
   Widget _footerHint() {
-    return Text(
-      _needPageController.customText.value,
-      style: textColor12,
-      overflow: TextOverflow.ellipsis,
-      maxLines: 1,
-    );
+    return Obx(() {
+      return ListView.builder(
+          shrinkWrap: true,
+          primary: false,
+          padding: EdgeInsets.only(top: 5, bottom: 5),
+          itemCount: _needPageController.selectedNeedType.value.length,
+          itemBuilder: (context, index) {
+            return Center(
+              child: Text(
+                _needPageController.selectedNeedType.value[index]['msg'],
+                style: textColor12,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+            );
+          });
+    });
   }
 
   Widget _searchBar() {
@@ -482,6 +480,7 @@ class _NeedPageState extends State<NeedPage> {
                           child: Align(
                             alignment: Alignment.topLeft,
                             child: ChoiceChip(
+                              side: BorderSide(color: DynamicColor.white),
                               label: Padding(
                                 padding: EdgeInsets.all(10),
                                 child: Text(

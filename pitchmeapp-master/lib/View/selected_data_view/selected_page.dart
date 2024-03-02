@@ -156,7 +156,7 @@ class _SelectedPageState extends State<SelectedPage> {
               ? Obx(() {
                   return customWidget(
                       "How much",
-                      _fundNacessaryController.selectedValue.value,
+                      'USD ${_fundNacessaryController.selectedValue.value}',
                       3, onPressad: () {
                     setState(() {
                       isSelect = 3;
@@ -266,7 +266,7 @@ class _SelectedPageState extends State<SelectedPage> {
                       });
                 })
               : Container(),
-          customWidget("Initial Offer",
+          offerDetailWidget("Initial Offer",
               _offerPageController.offrerTextController.text, 7, onPressad: () {
             setState(() {
               isSelect = 7;
@@ -379,7 +379,7 @@ class _SelectedPageState extends State<SelectedPage> {
   Widget customWidget(title, name, int selected,
       {required VoidCallback onPressad}) {
     final sizeH = MediaQuery.of(context).size.height;
-    final sizeW = MediaQuery.of(context).size.width;
+
     return InkWell(
       onTap: onPressad,
       child: Column(
@@ -424,6 +424,59 @@ class _SelectedPageState extends State<SelectedPage> {
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
+                  )),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget offerDetailWidget(title, name, int selected,
+      {required VoidCallback onPressad}) {
+    final sizeH = MediaQuery.of(context).size.height;
+
+    int wordscount = RegExp.escape(name).length;
+
+    return InkWell(
+      onTap: onPressad,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: Text(title, style: black14w5),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: SizeConfig.getFontSize25(context: context),
+              right: SizeConfig.getFontSize25(context: context),
+            ),
+            child: Card(
+              elevation: isSelect == selected ? 0 : 10,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Container(
+                  height: wordscount > 70 ? null : sizeH * 0.068,
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(left: 5, right: 5),
+                  decoration: BoxDecoration(
+                      gradient: isSelect == selected
+                          ? null
+                          : DynamicColor.gradientColorChange,
+                      color: isSelect == selected ? DynamicColor.white : null,
+                      borderRadius: BorderRadius.circular(10),
+                      border: isSelect == selected
+                          ? Border.all(color: DynamicColor.gredient2)
+                          : null),
+                  child: Text(
+                    name,
+                    style: TextStyle(
+                        color: isSelect == selected
+                            ? DynamicColor.gredient1
+                            : DynamicColor.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
                   )),
             ),
           ),

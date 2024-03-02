@@ -496,23 +496,29 @@ class _AppSupporterChatPageState extends State<AppSupporterChatPage> {
   }
 
   Widget showMsg(msg) {
-    return VoiceMessage(
-      // contactCircleColor: Colors.transparent,
-      audioSrc: Uri.parse(msg
-              .toString()
-              .replaceAll('ciu.ody.mybluehostin.me', 'curveinfotech.com'))
-          .toString(),
-      meBgColor: DynamicColor.lightGrey,
-      contactBgColor: DynamicColor.gredient2,
-      contactCircleColor: DynamicColor.gredient2,
-      contactFgColor: DynamicColor.gredient2,
-      contactPlayIconColor: DynamicColor.white,
-      mePlayIconColor: DynamicColor.white,
-      contactPlayIconBgColor: DynamicColor.gredient2,
-      meFgColor: DynamicColor.gredient2,
-      played: false,
-      me: true,
-      onPlay: () {},
+    print('message = ' + msg.toString());
+    return SizedBox(
+      height: SizeConfig.getSizeHeightBy(context: context, by: 0.1),
+      child: VoiceMessage(
+        // contactCircleColor: Colors.transparent,
+        audioSrc: Uri.parse(msg
+                .toString()
+                .replaceAll('ciu.ody.mybluehostin.me', 'curveinfotech.com'))
+            .toString(),
+        meBgColor: DynamicColor.lightGrey,
+        contactBgColor: DynamicColor.gredient2,
+        contactCircleColor: DynamicColor.gredient2,
+        contactFgColor: DynamicColor.gredient2,
+        contactPlayIconColor: DynamicColor.white,
+        mePlayIconColor: DynamicColor.white,
+        contactPlayIconBgColor: DynamicColor.gredient2,
+        meFgColor: DynamicColor.gredient2,
+        noiseCount: 0,
+        waveForm: [0.0, 0.0],
+        played: false,
+        me: true,
+        onPlay: () {},
+      ),
     );
   }
 

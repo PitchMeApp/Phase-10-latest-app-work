@@ -232,7 +232,7 @@ class GetApiService {
   Future getStatusApi(publickKey, clientSecret) async {
     String url =
         'https://uae.paymob.com/v1/intention/element/$publickKey/$clientSecret';
-    log('paymobe = ' + url);
+    log('paymob = ' + url.toString());
     final response = await http.get(
       Uri.parse(url),
     );

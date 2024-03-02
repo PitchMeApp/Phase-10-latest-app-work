@@ -26,7 +26,7 @@ class DashboardController extends GetxController {
       hasError.value = false;
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await businessIdeasApi.getPost(filter).then((value) {
-      //  log(value!.toJson().toString());
+        //log(value!.result!.length.toString());
         if (value!.result!.isNotEmpty) {
           var userID = prefs.getString('user_id').toString();
           if (userID.isNotEmpty && userID != 'null') {
@@ -90,9 +90,12 @@ class DashboardController extends GetxController {
           isLoadingPost2.value = false;
           onSwipe(0, value.result!.docs[0].title, false);
           salespitch.value = value;
+
           // log('message 2');
         } else {
           hasError.value = true;
+          salespitch.value.result = null;
+          isLoadingPost2.value = false;
         }
       });
     } catch (e) {

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -39,10 +38,10 @@ class _WebViewPageState extends State<WebViewPage> {
       key: webViewKey,
       initialUrlRequest: URLRequest(url: Uri.parse(widget.webUrl)),
       onLoadStart: (InAppWebViewController controller, url) {
-        log('retrn = ' + url!.path.toString());
-        // log('message 1 ' + url.origin);
-        // log('message 2 ' + url.host);
-        // log('message 3 ' + url.authority);
+        print('retrn = ' + url!.path.toString());
+        // print('message 1 ' + url.origin);
+        // print('message 2 ' + url.host);
+        // print('message 3 ' + url.authority);
         setState(() {});
 
         if (url.path == "/paymentsuccess.html") {
@@ -70,24 +69,25 @@ class _WebViewPageState extends State<WebViewPage> {
           .getStatusApi(
               widget.publickKey.toString(), widget.clientKey.toString())
           .then((value) {
-        log('message 1' + value.toString());
+        print('message 1 = ' + value.toString());
         if (value["id"] != null) {
           myToast(context, msg: 'Membership under updation');
           updateMembershipApi();
         } else {
-          myToast(context, msg: 'Updation Failed');
+          updateMembershipApi();
+          // myToast(context, msg: 'Updation Failed');
         }
       });
       // var tempData = json.decode(res);
     } catch (e) {
-      log(e.toString());
+      print('status error = ' + e.toString());
     }
   }
 
   Future<void> updateMembershipApi() async {
     try {
       await GetApiService().updateMembershipApi().then((value) {
-        log('message 3 = ' + value.toString());
+        print('message 3 = ' + value.toString());
         if (value["message"] == "User has been successfully updated") {
           myToast(context, msg: 'Membership updated');
           PageNavigateScreen().normalpushReplesh(context, PaymentSuccessPage());
@@ -98,7 +98,7 @@ class _WebViewPageState extends State<WebViewPage> {
       });
       // var tempData = json.decode(res);
     } catch (e) {
-      log(e.toString());
+      print('member error = ' + e.toString());
     }
   }
 
