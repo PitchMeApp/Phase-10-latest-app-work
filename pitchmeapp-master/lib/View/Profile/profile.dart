@@ -287,7 +287,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       isSelect = 6;
                                     });
                                     showDialog(
-                                        barrierDismissible: true,
+                                        barrierDismissible: false,
                                         context: Get.context!,
                                         builder: (context) =>
                                             DeleteUserAccountPopUp());
